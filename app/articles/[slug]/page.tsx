@@ -1,5 +1,5 @@
 import ParagraphResolver from "@/components/paragraphs/ParagraphResolver";
-import NextLink from "next/link";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import ArticleContent from "@/components/ArticleContent";
 

@@ -1,7 +1,3 @@
-"use client";
-
-import { Box, Text } from "@chakra-ui/react";
-
 interface HeroBannerProps {
   subtitle: string;
   body: string;
@@ -9,21 +5,13 @@ interface HeroBannerProps {
 
 export default function HeroBanner({ subtitle, body }: HeroBannerProps) {
   return (
-    <Box
-      bgGradient="to-r"
-      gradientFrom="blue.600"
-      gradientTo="indigo.600"
-      color="white"
-      borderRadius="xl"
-      p={{ base: 6, md: 12 }}
-      mb={8}
-    >
-      <Text fontSize={{ base: "lg", md: "xl" }} fontWeight="semibold" mb={4} color="blue.100">
+    <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-xl p-8 md:p-12 mb-8">
+      <p className="text-lg md:text-xl font-semibold mb-4 text-blue-100">
         {subtitle}
-      </Text>
-      <Text fontSize={{ base: "md", md: "lg" }} color="blue.50" lineHeight="tall">
+      </p>
+      <p className="text-base md:text-lg text-blue-50 leading-relaxed">
         {body}
-      </Text>
-    </Box>
+      </p>
+    </div>
   );
 }
