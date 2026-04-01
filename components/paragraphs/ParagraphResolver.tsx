@@ -3,6 +3,7 @@ import StreamCarousel from "./StreamCarousel";
 import FiftyFifty from "./FiftyFifty";
 import Description from "./Description";
 import Presentation from "./Presentation";
+import ArticleTeaser from "./ArticleTeaser";
 
 interface Paragraph {
   id: string;
@@ -85,6 +86,32 @@ export default function ParagraphResolver({ paragraph }: { paragraph: Paragraph 
           title={paragraph.attributes.field_desc_title || ""}
           description={paragraph.attributes.field_desc_desc || ""}
           color={paragraph.attributes.field_desc_color || "field_desc_color_white"}
+        />
+      );
+    }
+
+    case "article_teaser": {
+      const teaserRefs = paragraph.relationships?.field_article_teaser_teasers?.data || [];
+      const teaserIds = teaserRefs.map((t: any) => t.id);
+      const teasers = (paragraph._included || []).filter((item: any) => teaserIds.includes(item.id));
+      return (
+        <ArticleTeaser
+          title={paragraph.attributes.field_article_teaser_title || ""}
+          teasers={teasers}
+          color={paragraph.attributes.field_article_teaser_color || "field_article_teaser_c_db"}
+        />
+      );
+    }
+
+    case "article_teaser": {
+      const teaserRefs = paragraph.relationships?.field_article_teaser_teasers?.data || [];
+      const teaserIds = teaserRefs.map((t: any) => t.id);
+      const teasers = (paragraph._included || []).filter((item: any) => teaserIds.includes(item.id));
+      return (
+        <ArticleTeaser
+          title={paragraph.attributes.field_article_teaser_title || ""}
+          teasers={teasers}
+          color={paragraph.attributes.field_article_teaser_color || "field_article_teaser_c_db"}
         />
       );
     }

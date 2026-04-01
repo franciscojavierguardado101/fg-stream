@@ -8,6 +8,7 @@ const INCLUDE_MAP: Record<string, string[]> = {
     "field_components.field_stream_c_cards",
     "field_components.field_stream_c_cards.field_stream_c_image",
     "field_components.field_50_50_media",
+    "field_components.field_article_teaser_teasers",
     "field_components.field_desc_subh",
     "field_components.field_desc_media",
   ],
