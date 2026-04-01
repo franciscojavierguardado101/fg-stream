@@ -2,6 +2,7 @@ import HeroBanner from "./HeroBanner";
 import StreamCarousel from "./StreamCarousel";
 import FiftyFifty from "./FiftyFifty";
 import Description from "./Description";
+import Presentation from "./Presentation";
 
 interface Paragraph {
   id: string;
@@ -84,6 +85,21 @@ export default function ParagraphResolver({ paragraph }: { paragraph: Paragraph 
           title={paragraph.attributes.field_desc_title || ""}
           description={paragraph.attributes.field_desc_desc || ""}
           color={paragraph.attributes.field_desc_color || "field_desc_color_white"}
+        />
+      );
+    }
+
+    case "presentation": {
+      const url1 = paragraph.attributes.field_pres_url_one || null;
+      const url2 = paragraph.attributes.field_pres_url_two || null;
+      return (
+        <Presentation
+          caption={paragraph.attributes.field_pres_caption || ""}
+          title={paragraph.attributes.field_pres_title || ""}
+          description={paragraph.attributes.field_pres_desc || ""}
+          url1={url1}
+          url2={url2}
+          color={paragraph.attributes.field_pres_color || "field_pres_c_db"}
         />
       );
     }
